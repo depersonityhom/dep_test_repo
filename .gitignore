@@ -1,0 +1,50 @@
+# Python cache/bytecode
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+**/.venv/
+**/venv/
+
+# Tool/test caches
+.pytest_cache/
+**/.pytest_cache/
+.mypy_cache/
+**/.mypy_cache/
+.ruff_cache/
+**/.ruff_cache/
+.cache/
+**/.cache/
+
+# Build artifacts
+build/
+**/build/
+dist/
+**/dist/
+*.egg-info/
+**/*.egg-info/
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+**/htmlcov/
+
+# Logs and local db
+*.log
+*.sqlite
+*.db
+
+# Editor/OS
+.vscode/
+.idea/
+.history/
+.DS_Store
+Thumbs.db
+
+# Local temporary files
+*.tmp
+*.temp

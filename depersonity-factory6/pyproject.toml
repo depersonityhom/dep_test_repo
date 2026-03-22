@@ -1,0 +1,17 @@
+[project]
+name = "ComfyUI-WanAnimatePreprocess"
+description = "ComfyUI nodes for WanAnimate input processing"
+version = "1.0.2"
+license = {file = "LICENSE"}
+dependencies = ["opencv-python", "onnxruntime-gpu", "onnx"]
+
+[project.urls]
+Repository = "https://github.com/depersonityhom/ComfyUI-WanAnimatePreprocess"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "depersonityhom"
+DisplayName = "ComfyUI-WanAnimatePreprocess"
+Icon = ""
+
+

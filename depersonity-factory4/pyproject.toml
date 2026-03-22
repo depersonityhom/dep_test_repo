@@ -1,0 +1,17 @@
+[project]
+name = "comfyui-zmg-nodes"
+description = "Nodes:ApiRequestNode, LoadVideoNode, JsonParserNode, OllamaRequestNode, OldPhotoColorizationNode."
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["opencv-python", "imageio-ffmpeg"]
+
+[project.urls]
+Repository = "https://github.com/depersonityhom/ComfyUI-ZMG-Nodes"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-ZMG-Nodes"
+Icon = ""
+
+
