@@ -1,8 +1,8 @@
 {
   "id": "7f3d25a6-3378-4b99-a89a-a9e729c1b27f",
   "revision": 0,
-  "last_node_id": 800,
-  "last_link_id": 900,
+  "last_node_id": 700,
+  "last_link_id": 835,
   "nodes": [
     {
       "id": 541,
@@ -504,7 +504,7 @@
     },
     {
       "id": 78,
-      "type": "Depersonity_WanVideoSetLoRAs",
+      "type": "OFMFactory_WanVideoSetLoRAs",
       "pos": [
         -8647.908984004924,
         5537.849492907249
@@ -543,7 +543,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanVideoWrapper",
         "ver": "772642b4f132a077f655ff24d11cb99ef108aff5",
-        "Node name for S&R": "Depersonity_WanVideoSetLoRAs",
+        "Node name for S&R": "OFMFactory_WanVideoSetLoRAs",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "ue_properties": {
           "widget_ue_connectable": {},
@@ -1237,7 +1237,7 @@
     },
     {
       "id": 271,
-      "type": "Depersonity_WanVideoClipVisionEncode",
+      "type": "OFMFactory_WanVideoClipVisionEncode",
       "pos": [
         -8935.808643307697,
         5768.4081561676185
@@ -1287,7 +1287,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanVideoWrapper",
         "ver": "2bdd81a10b03c14443c79bdf3b783b1feb3d1fa3",
-        "Node name for S&R": "Depersonity_WanVideoClipVisionEncode",
+        "Node name for S&R": "OFMFactory_WanVideoClipVisionEncode",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "_cache": "d0852aacd9419dc54f287a17fb358b86e9cfc8d85e1404052f8892dd11538b80"
       },
@@ -1305,7 +1305,7 @@
     },
     {
       "id": 68,
-      "type": "Depersonity_ImageResizeKJv2",
+      "type": "OFMFactory_ImageResizeKJv2",
       "pos": [
         -9176.721137932984,
         5768.207585314677
@@ -1374,7 +1374,7 @@
       "properties": {
         "cnr_id": "comfyui-kjnodes",
         "ver": "ad37ce656c13e9abea002b46e3a89be3dba32355",
-        "Node name for S&R": "Depersonity_ImageResizeKJv2",
+        "Node name for S&R": "OFMFactory_ImageResizeKJv2",
         "aux_id": "kijai/ComfyUI-KJNodes",
         "ue_properties": {
           "widget_ue_connectable": {
@@ -1435,7 +1435,7 @@
     },
     {
       "id": 490,
-      "type": "Depersonity_WanVideoTextEmbedBridge",
+      "type": "OFMFactory_WanVideoTextEmbedBridge",
       "pos": [
         -8275.325623767934,
         5835.522486654518
@@ -1474,7 +1474,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanVideoWrapper",
         "ver": "e4627466f501d48344620b4d4d385b8abedaea48",
-        "Node name for S&R": "Depersonity_WanVideoTextEmbedBridge",
+        "Node name for S&R": "OFMFactory_WanVideoTextEmbedBridge",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "_cache": "d0852aacd9419dc54f287a17fb358b86e9cfc8d85e1404052f8892dd11538b80"
       },
@@ -1626,7 +1626,7 @@
     },
     {
       "id": 638,
-      "type": "Depersonity_TSColorMatch",
+      "type": "OFMFactory_TSColorMatch",
       "pos": [
         -7692.518140336254,
         6059.90914324848
@@ -1642,7 +1642,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 844
+          "link": 773
         }
       ],
       "outputs": [
@@ -1656,7 +1656,7 @@
       ],
       "properties": {
         "aux_id": "weweqsueprcomfu/tsutils",
-        "Node name for S&R": "Depersonity_TSColorMatch",
+        "Node name for S&R": "OFMFactory_TSColorMatch",
         "ver": "76d149820a8ba43f21ae2e2fda172c4160f044b8"
       },
       "widgets_values": [
@@ -1880,7 +1880,7 @@
     },
     {
       "id": 584,
-      "type": "Depersonity_GetImageSizeAndCount",
+      "type": "OFMFactory_GetImageSizeAndCount",
       "pos": [
         -9114.947956620143,
         4198.052014871956
@@ -1931,7 +1931,7 @@
       "properties": {
         "cnr_id": "comfyui-kjnodes",
         "ver": "f37df472dfb325f1f72c90e2df56e72f40f850f0",
-        "Node name for S&R": "Depersonity_GetImageSizeAndCount",
+        "Node name for S&R": "OFMFactory_GetImageSizeAndCount",
         "aux_id": "kijai/ComfyUI-KJNodes",
         "ue_properties": {
           "widget_ue_connectable": {},
@@ -2104,7 +2104,7 @@
     },
     {
       "id": 354,
-      "type": "Depersonity_WanVideoLoraSelectMulti",
+      "type": "OFMFactory_WanVideoLoraSelectMulti",
       "pos": [
         -8702.676389308708,
         5163.251970033926
@@ -2144,7 +2144,7 @@
       "properties": {
         "cnr_id": "comfyui-wanvideowrapper",
         "ver": "1.4.5",
-        "Node name for S&R": "Depersonity_WanVideoLoraSelectMulti",
+        "Node name for S&R": "OFMFactory_WanVideoLoraSelectMulti",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "_cache": "d0852aacd9419dc54f287a17fb358b86e9cfc8d85e1404052f8892dd11538b80"
       },
@@ -2208,7 +2208,7 @@
     },
     {
       "id": 22,
-      "type": "Depersonity_WanVideoModelLoader",
+      "type": "OFMFactory_WanVideoModelLoader",
       "pos": [
         -9176.447871344999,
         5162.645407748767
@@ -2289,7 +2289,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanVideoWrapper",
         "ver": "d9b1f4d1a5aea91d101ae97a54714a5861af3f50",
-        "Node name for S&R": "Depersonity_WanVideoModelLoader",
+        "Node name for S&R": "OFMFactory_WanVideoModelLoader",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "ue_properties": {
           "widget_ue_connectable": {},
@@ -2311,7 +2311,7 @@
     },
     {
       "id": 90,
-      "type": "Depersonity_OnnxDetectionModelLoader",
+      "type": "OFMFactory_OnnxDetectionModelLoader",
       "pos": [
         -8057.964383017959,
         5162.72472403906
@@ -2338,7 +2338,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanAnimatePreprocess",
         "ver": "2fcbcae7eec637fdc712fdec18e6266feb8ba3a7",
-        "Node name for S&R": "Depersonity_OnnxDetectionModelLoader",
+        "Node name for S&R": "OFMFactory_OnnxDetectionModelLoader",
         "aux_id": "kijai/ComfyUI-WanAnimatePreprocess",
         "ue_properties": {
           "widget_ue_connectable": {},
@@ -2395,7 +2395,7 @@
     },
     {
       "id": 89,
-      "type": "Depersonity_PoseAndFaceDetection",
+      "type": "OFMFactory_PoseAndFaceDetection",
       "pos": [
         -8057.089688344677,
         5295.480452942203
@@ -2477,7 +2477,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanAnimatePreprocess",
         "ver": "2fcbcae7eec637fdc712fdec18e6266feb8ba3a7",
-        "Node name for S&R": "Depersonity_PoseAndFaceDetection",
+        "Node name for S&R": "OFMFactory_PoseAndFaceDetection",
         "aux_id": "kijai/ComfyUI-WanAnimatePreprocess",
         "ue_properties": {
           "widget_ue_connectable": {
@@ -2538,7 +2538,7 @@
     },
     {
       "id": 636,
-      "type": "Depersonity_TSDownscaler",
+      "type": "OFMFactory_TSDownscaler",
       "pos": [
         -8351.507160543095,
         4493.545529637837
@@ -2568,7 +2568,7 @@
       ],
       "properties": {
         "aux_id": "weweqsueprcomfu/tsutils",
-        "Node name for S&R": "Depersonity_TSDownscaler",
+        "Node name for S&R": "OFMFactory_TSDownscaler",
         "ver": "76d149820a8ba43f21ae2e2fda172c4160f044b8"
       },
       "widgets_values": [
@@ -2679,7 +2679,7 @@
     },
     {
       "id": 579,
-      "type": "Depersonity_TSPoseDataSmoother",
+      "type": "OFMFactory_TSPoseDataSmoother",
       "pos": [
         -8350.09761946393,
         4117.275872845077
@@ -2714,7 +2714,7 @@
       ],
       "properties": {
         "aux_id": "teskor-hub/comfyui-teskors-utils",
-        "Node name for S&R": "Depersonity_TSPoseDataSmoother",
+        "Node name for S&R": "OFMFactory_TSPoseDataSmoother",
         "ver": "9c4d0507ccd1f1c5b18fd536f2796e216560ed43"
       },
       "widgets_values": [
@@ -2755,7 +2755,7 @@
     },
     {
       "id": 28,
-      "type": "Depersonity_WanVideoDecode",
+      "type": "OFMFactory_WanVideoDecode",
       "pos": [
         -7692.9793988352785,
         5747.221795318797
@@ -2785,15 +2785,14 @@
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            773,
-            855
+            773
           ]
         }
       ],
       "properties": {
         "cnr_id": "ComfyUI-WanVideoWrapper",
         "ver": "d9b1f4d1a5aea91d101ae97a54714a5861af3f50",
-        "Node name for S&R": "Depersonity_WanVideoDecode",
+        "Node name for S&R": "OFMFactory_WanVideoDecode",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "ue_properties": {
           "widget_ue_connectable": {},
@@ -2815,7 +2814,7 @@
     },
     {
       "id": 624,
-      "type": "Depersonity_WanVideoAnimateEmbeds",
+      "type": "OFMFactory_WanVideoAnimateEmbeds",
       "pos": [
         -7762.760688695055,
         4150.23619151728
@@ -2912,7 +2911,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanVideoWrapper",
         "ver": "761b1d191e50d589465e31dc0d40ff7c59b1b7b0",
-        "Node name for S&R": "Depersonity_WanVideoAnimateEmbeds",
+        "Node name for S&R": "OFMFactory_WanVideoAnimateEmbeds",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "_cache": "d0852aacd9419dc54f287a17fb358b86e9cfc8d85e1404052f8892dd11538b80"
       },
@@ -2982,7 +2981,7 @@
     },
     {
       "id": 575,
-      "type": "Depersonity_TSGroupModeToggle",
+      "type": "OFMFactory_TSGroupModeToggle",
       "pos": [
         -8057.645664267988,
         4117.794656045971
@@ -3000,7 +2999,7 @@
       "outputs": [],
       "properties": {
         "aux_id": "weweqsueprcomfu/tsutils",
-        "Node name for S&R": "Depersonity_TSGroupModeToggle",
+        "Node name for S&R": "OFMFactory_TSGroupModeToggle",
         "selectedGroups": [
           "MASK"
         ],
@@ -3542,7 +3541,7 @@
     },
     {
       "id": 349,
-      "type": "Depersonity_WanVideoVAELoader",
+      "type": "OFMFactory_WanVideoVAELoader",
       "pos": [
         -9177.248332283956,
         5537.380900713307
@@ -3575,7 +3574,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanVideoWrapper",
         "ver": "d9b1f4d1a5aea91d101ae97a54714a5861af3f50",
-        "Node name for S&R": "Depersonity_WanVideoVAELoader",
+        "Node name for S&R": "OFMFactory_WanVideoVAELoader",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "ue_properties": {
           "widget_ue_connectable": {},
@@ -3595,7 +3594,7 @@
     },
     {
       "id": 538,
-      "type": "Depersonity_Sam2Segmentation",
+      "type": "OFMFactory_Sam2Segmentation",
       "pos": [
         -7246.204149902801,
         4222.6452517361495
@@ -3681,7 +3680,7 @@
       "properties": {
         "cnr_id": "comfyui-segment-anything-2",
         "ver": "0c35fff5f382803e2310103357b5e985f5437f32",
-        "Node name for S&R": "Depersonity_Sam2Segmentation",
+        "Node name for S&R": "OFMFactory_Sam2Segmentation",
         "widget_ue_connectable": {}
       },
       "widgets_values": [
@@ -3793,7 +3792,7 @@
     },
     {
       "id": 273,
-      "type": "Depersonity_WanVideoSampler",
+      "type": "OFMFactory_WanVideoSampler",
       "pos": [
         -8023.603431783892,
         5747.358488442491
@@ -3925,7 +3924,7 @@
       "properties": {
         "cnr_id": "ComfyUI-WanVideoWrapper",
         "ver": "e5ef9752a7e846b232fc05fd993327a2e870a788",
-        "Node name for S&R": "Depersonity_WanVideoSampler",
+        "Node name for S&R": "OFMFactory_WanVideoSampler",
         "aux_id": "kijai/ComfyUI-WanVideoWrapper",
         "_cache": "d0852aacd9419dc54f287a17fb358b86e9cfc8d85e1404052f8892dd11538b80"
       },
@@ -3988,7 +3987,7 @@
     },
     {
       "id": 539,
-      "type": "Depersonity_DownloadAndLoadSAM2Model",
+      "type": "OFMFactory_DownloadAndLoadSAM2Model",
       "pos": [
         -6932.539282486761,
         4224.849556643132
@@ -4051,7 +4050,7 @@
       "properties": {
         "cnr_id": "comfyui-segment-anything-2",
         "ver": "0c35fff5f382803e2310103357b5e985f5437f32",
-        "Node name for S&R": "Depersonity_DownloadAndLoadSAM2Model",
+        "Node name for S&R": "OFMFactory_DownloadAndLoadSAM2Model",
         "widget_ue_connectable": {}
       },
       "widgets_values": [
@@ -4171,7 +4170,7 @@
     },
     {
       "id": 550,
-      "type": "Depersonity_DrawMaskOnImage",
+      "type": "OFMFactory_DrawMaskOnImage",
       "pos": [
         -7168.189006097913,
         4253.007733797054
@@ -4230,7 +4229,7 @@
       "properties": {
         "cnr_id": "comfyui-kjnodes",
         "ver": "623b5913dc7f240fd8b26422e99f8849a21c5473",
-        "Node name for S&R": "Depersonity_DrawMaskOnImage",
+        "Node name for S&R": "OFMFactory_DrawMaskOnImage",
         "aux_id": "aining2022/ComfyUI_Swwan",
         "widget_ue_connectable": {}
       },
@@ -4277,7 +4276,7 @@
     },
     {
       "id": 540,
-      "type": "Depersonity_BlockifyMask",
+      "type": "OFMFactory_BlockifyMask",
       "pos": [
         -7184.221188395114,
         4215.1861308792095
@@ -4330,7 +4329,7 @@
       "properties": {
         "cnr_id": "comfyui-kjnodes",
         "ver": "00da1910634fbf314d407608efb281ae6f7f1ba2",
-        "Node name for S&R": "Depersonity_BlockifyMask",
+        "Node name for S&R": "OFMFactory_BlockifyMask",
         "widget_ue_connectable": {}
       },
       "widgets_values": [
@@ -5134,8 +5133,8 @@
       773,
       28,
       0,
-      691,
-      1,
+      638,
+      0,
       "IMAGE"
     ],
     [
@@ -5275,70 +5274,6 @@
       "IMAGE"
     ],
     [
-      844,
-      694,
-      0,
-      638,
-      0,
-      "IMAGE"
-    ],
-    [
-      850,
-      690,
-      0,
-      691,
-      0,
-      "LIVEPORTRAITPIPE"
-    ],
-    [
-      850,
-      690,
-      0,
-      692,
-      0,
-      "LIVEPORTRAITPIPE"
-    ],
-    [
-      851,
-      691,
-      0,
-      692,
-      1,
-      "IMAGE"
-    ],
-    [
-      852,
-      691,
-      1,
-      693,
-      2,
-      "CROPINFO"
-    ],
-    [
-      853,
-      692,
-      0,
-      693,
-      1,
-      "IMAGE"
-    ],
-    [
-      854,
-      693,
-      0,
-      694,
-      0,
-      "IMAGE"
-    ],
-    [
-      855,
-      28,
-      0,
-      693,
-      0,
-      "IMAGE"
-    ],
-    [
       835,
       550,
       0,
@@ -5425,81 +5360,6 @@
       "color": "#444",
       "font_size": 24,
       "flags": {}
-    },
-    {
-      "id": 690,
-      "type": "Depersonity_DownloadAndLoadLivePortraitModels",
-      "pos": [-7300, 6000],
-      "size": [300, 100],
-      "flags": {},
-      "order": 100,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [{"name": "pipeline", "type": "LIVEPORTRAITPIPE", "links": [850]}],
-      "title": "Load LivePortrait",
-      "properties": {}
-    },
-    {
-      "id": 691,
-      "type": "Depersonity_LivePortraitCropper",
-      "pos": [-7000, 6000],
-      "size": [300, 150],
-      "flags": {},
-      "order": 101,
-      "mode": 0,
-      "inputs": [{"name": "pipeline", "type": "LIVEPORTRAITPIPE", "link": 850}, {"name": "source", "type": "IMAGE", "link": 773}],
-      "outputs": [{"name": "IMAGE", "type": "IMAGE", "links": [851]}, {"name": "CROPINFO", "type": "CROPINFO", "links": [852]}],
-      "title": "Face Cropper",
-      "properties": {}
-    },
-    {
-      "id": 692,
-      "type": "Depersonity_LivePortraitProcess",
-      "pos": [-6700, 6000],
-      "size": [300, 200],
-      "flags": {},
-      "order": 102,
-      "mode": 0,
-      "inputs": [{"name": "pipeline", "type": "LIVEPORTRAITPIPE", "link": 850}, {"name": "source_image", "type": "IMAGE", "link": 851}, {"name": "driving_images", "type": "IMAGE", "link": 745}],
-      "outputs": [{"name": "IMAGE", "type": "IMAGE", "links": [853]}],
-      "title": "Face Expression Transfer",
-      "properties": {},
-      "widgets_values": ["relative", true, true, true, 0.6]
-    },
-    {
-      "id": 693,
-      "type": "Depersonity_LivePortraitComposite",
-      "pos": [-6400, 6000],
-      "size": [300, 150],
-      "flags": {},
-      "order": 103,
-      "mode": 0,
-      "inputs": [{"name": "source_image", "type": "IMAGE", "link": 773}, {"name": "processed_image", "type": "IMAGE", "link": 853}, {"name": "crop_info", "type": "CROPINFO", "link": 852}],
-      "outputs": [{"name": "full_images", "type": "IMAGE", "links": [854]}],
-      "title": "Face Composite",
-      "properties": {}
-    },
-    {
-      "id": 694,
-      "type": "Depersonity_FaceRestoreCFWithModel",
-      "pos": [-6100, 6000],
-      "size": [300, 100],
-      "flags": {},
-      "order": 104,
-      "mode": 0,
-      "inputs": [{"name": "image", "type": "IMAGE", "link": 854}],
-      "outputs": [{"name": "IMAGE", "type": "IMAGE", "links": [844]}],
-      "title": "CodeFormer Face Restore",
-      "properties": {},
-      "widgets_values": [0.6]
-    },
-    {
-      "id": 40,
-      "title": "FACE REFINEMENT",
-      "bounding": [-7350, 5900, 1600, 300],
-      "color": "#444",
-      "font_size": 24,
-      "flags": {}
     }
   ],
   "config": {},
@@ -5529,4 +5389,3 @@
   },
   "version": 0.4
 }
-

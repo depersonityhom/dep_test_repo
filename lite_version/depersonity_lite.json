@@ -1,8 +1,8 @@
 {
   "id": "7f3d25a6-3378-4b99-a89a-a9e729c1b27f",
   "revision": 0,
-  "last_node_id": 800,
-  "last_link_id": 900,
+  "last_node_id": 700,
+  "last_link_id": 835,
   "nodes": [
     {
       "id": 541,
@@ -1642,7 +1642,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 844
+          "link": 773
         }
       ],
       "outputs": [
@@ -2785,8 +2785,7 @@
           "type": "IMAGE",
           "slot_index": 0,
           "links": [
-            773,
-            855
+            773
           ]
         }
       ],
@@ -5134,8 +5133,8 @@
       773,
       28,
       0,
-      691,
-      1,
+      638,
+      0,
       "IMAGE"
     ],
     [
@@ -5275,70 +5274,6 @@
       "IMAGE"
     ],
     [
-      844,
-      694,
-      0,
-      638,
-      0,
-      "IMAGE"
-    ],
-    [
-      850,
-      690,
-      0,
-      691,
-      0,
-      "LIVEPORTRAITPIPE"
-    ],
-    [
-      850,
-      690,
-      0,
-      692,
-      0,
-      "LIVEPORTRAITPIPE"
-    ],
-    [
-      851,
-      691,
-      0,
-      692,
-      1,
-      "IMAGE"
-    ],
-    [
-      852,
-      691,
-      1,
-      693,
-      2,
-      "CROPINFO"
-    ],
-    [
-      853,
-      692,
-      0,
-      693,
-      1,
-      "IMAGE"
-    ],
-    [
-      854,
-      693,
-      0,
-      694,
-      0,
-      "IMAGE"
-    ],
-    [
-      855,
-      28,
-      0,
-      693,
-      0,
-      "IMAGE"
-    ],
-    [
       835,
       550,
       0,
@@ -5422,81 +5357,6 @@
         728.5831638380951,
         1706.9085275498223
       ],
-      "color": "#444",
-      "font_size": 24,
-      "flags": {}
-    },
-    {
-      "id": 690,
-      "type": "Depersonity_DownloadAndLoadLivePortraitModels",
-      "pos": [-7300, 6000],
-      "size": [300, 100],
-      "flags": {},
-      "order": 100,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [{"name": "pipeline", "type": "LIVEPORTRAITPIPE", "links": [850]}],
-      "title": "Load LivePortrait",
-      "properties": {}
-    },
-    {
-      "id": 691,
-      "type": "Depersonity_LivePortraitCropper",
-      "pos": [-7000, 6000],
-      "size": [300, 150],
-      "flags": {},
-      "order": 101,
-      "mode": 0,
-      "inputs": [{"name": "pipeline", "type": "LIVEPORTRAITPIPE", "link": 850}, {"name": "source", "type": "IMAGE", "link": 773}],
-      "outputs": [{"name": "IMAGE", "type": "IMAGE", "links": [851]}, {"name": "CROPINFO", "type": "CROPINFO", "links": [852]}],
-      "title": "Face Cropper",
-      "properties": {}
-    },
-    {
-      "id": 692,
-      "type": "Depersonity_LivePortraitProcess",
-      "pos": [-6700, 6000],
-      "size": [300, 200],
-      "flags": {},
-      "order": 102,
-      "mode": 0,
-      "inputs": [{"name": "pipeline", "type": "LIVEPORTRAITPIPE", "link": 850}, {"name": "source_image", "type": "IMAGE", "link": 851}, {"name": "driving_images", "type": "IMAGE", "link": 745}],
-      "outputs": [{"name": "IMAGE", "type": "IMAGE", "links": [853]}],
-      "title": "Face Expression Transfer",
-      "properties": {},
-      "widgets_values": ["relative", true, true, true, 0.6]
-    },
-    {
-      "id": 693,
-      "type": "Depersonity_LivePortraitComposite",
-      "pos": [-6400, 6000],
-      "size": [300, 150],
-      "flags": {},
-      "order": 103,
-      "mode": 0,
-      "inputs": [{"name": "source_image", "type": "IMAGE", "link": 773}, {"name": "processed_image", "type": "IMAGE", "link": 853}, {"name": "crop_info", "type": "CROPINFO", "link": 852}],
-      "outputs": [{"name": "full_images", "type": "IMAGE", "links": [854]}],
-      "title": "Face Composite",
-      "properties": {}
-    },
-    {
-      "id": 694,
-      "type": "Depersonity_FaceRestoreCFWithModel",
-      "pos": [-6100, 6000],
-      "size": [300, 100],
-      "flags": {},
-      "order": 104,
-      "mode": 0,
-      "inputs": [{"name": "image", "type": "IMAGE", "link": 854}],
-      "outputs": [{"name": "IMAGE", "type": "IMAGE", "links": [844]}],
-      "title": "CodeFormer Face Restore",
-      "properties": {},
-      "widgets_values": [0.6]
-    },
-    {
-      "id": 40,
-      "title": "FACE REFINEMENT",
-      "bounding": [-7350, 5900, 1600, 300],
       "color": "#444",
       "font_size": 24,
       "flags": {}
