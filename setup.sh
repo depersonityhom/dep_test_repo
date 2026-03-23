@@ -1,7 +1,4 @@
-#!/bin/sh
-if [ -z "${BASH_VERSION:-}" ]; then
-    exec /usr/bin/env bash "$0" "$@"
-fi
+#!/bin/bash
 set -e
 export TERM=xterm
 # Глушим лишние вопросы от Git
@@ -188,7 +185,9 @@ download_resource "models/upscale_models" "$MY_REPO_URL/005_colorDN_DFWB_s128w8_
 # Прочее (если понадобится)
 download_resource "models/promptmodels" "$MY_REPO_URL/low.pt" "promptmodels low.pt"
 
-echo -e \"${YELLOW}Важно:${NC} CodeFormer model (codeformer.pth) в hf-репозитории wf_local не найден. Его нужно положить вручную в ${COMFYUI_DIR}/models/facerestore_models/codeformer.pth\"
+# CodeFormer (facerestore_models)
+download_resource "models/facerestore_models" "https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth" "CodeFormer model (codeformer.pth)"
+echo -e "${YELLOW}Важно:${NC} если список в ноде FaceRestoreModelLoader пустой, проверь что файл лежит в ${COMFYUI_DIR}/models/facerestore_models/codeformer.pth и перезапусти ComfyUI"
 
 log_step "06" "СТАРТ"
 echo -e "${GREEN}✨ Все файлы из репозитория успешно перенесены в custom_nodes.${NC}"
