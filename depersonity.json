@@ -2703,7 +2703,6 @@
                     "type": "IMAGE",
                     "slot_index": 0,
                     "links": [
-                        773,
                         855
                     ]
                 }
@@ -2950,14 +2949,16 @@
                 {
                     "name": "MASK",
                     "type": "MASK",
-                    "link": 828
+                    "link": 850
                 }
             ],
             "outputs": [
                 {
                     "name": "*",
                     "type": "*",
-                    "links": null
+                    "links": [
+                        853
+                    ]
                 }
             ],
             "title": "Set_out_grom_mask",
@@ -2992,7 +2993,8 @@
                     "name": "MASK",
                     "type": "MASK",
                     "links": [
-                        827
+                        827,
+                        850
                     ]
                 }
             ],
@@ -4604,7 +4606,7 @@
                 {
                     "name": "source_image",
                     "type": "IMAGE",
-                    "link": 773
+                    "link": 855
                 },
                 {
                     "name": "processed_image",
@@ -4614,7 +4616,7 @@
                 {
                     "name": "crop_info",
                     "type": "CROPINFO",
-                    "link": 852
+                    "link": null
                 }
             ],
             "outputs": [
@@ -5128,14 +5130,6 @@
             "WANVIDIMAGE_EMBEDS"
         ],
         [
-            773,
-            28,
-            0,
-            691,
-            1,
-            "IMAGE"
-        ],
-        [
             782,
             638,
             0,
@@ -5283,33 +5277,9 @@
             850,
             690,
             0,
-            691,
-            0,
-            "LIVEPORTRAITPIPE"
-        ],
-        [
-            850,
-            690,
-            0,
             692,
             0,
             "LIVEPORTRAITPIPE"
-        ],
-        [
-            851,
-            691,
-            0,
-            692,
-            1,
-            "IMAGE"
-        ],
-        [
-            852,
-            691,
-            1,
-            693,
-            2,
-            "CROPINFO"
         ],
         [
             853,
