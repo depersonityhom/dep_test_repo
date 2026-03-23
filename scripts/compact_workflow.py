@@ -21,11 +21,23 @@ def compact(src_path: Path, dst_path: Path) -> None:
     nodes = []
     for n in keep_top.get("nodes", []):
         node = {k: n.get(k) for k in ["id", "type", "pos", "size", "flags", "inputs", "outputs", "widgets_values", "title"] if k in n}
+        if "pos" not in node or node["pos"] is None:
+            node["pos"] = [0, 0]
+        if "size" not in node or node["size"] is None:
+            node["size"] = [210, 60]
+        if "flags" not in node or node["flags"] is None:
+            node["flags"] = {}
+        if "inputs" not in node or node["inputs"] is None:
+            node["inputs"] = []
+        if "outputs" not in node or node["outputs"] is None:
+            node["outputs"] = []
+        if "widgets_values" not in node or node["widgets_values"] is None:
+            node["widgets_values"] = []
         props = n.get("properties")
-        if isinstance(props, dict):
-            filtered_props = {k: v for k, v in props.items() if k not in {"_cache", "ue_properties", "PS_cache"}}
-            if filtered_props:
-                node["properties"] = filtered_props
+        if not isinstance(props, dict):
+            props = {}
+        filtered_props = {k: v for k, v in props.items() if k not in {"_cache", "ue_properties", "PS_cache"}}
+        node["properties"] = filtered_props
         nodes.append(node)
     keep_top["nodes"] = nodes
     dst_path.write_text(json.dumps(keep_top, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
