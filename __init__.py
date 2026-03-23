@@ -1,6 +1,7 @@
 import importlib.util
 import re
 import sys
+import traceback
 from pathlib import Path
 
 
@@ -60,10 +61,11 @@ for _pkg in _PACKAGES:
         continue
     try:
         _cm, _dm = _load_package_from_dir(_dir)
-    except Exception:
+    except Exception as e:
+        print(f"[Depersonity Bundle] Failed to load '{_pkg}': {e}", file=sys.stderr)
+        print(traceback.format_exc(), file=sys.stderr)
         continue
     NODE_CLASS_MAPPINGS.update(_cm)
     NODE_DISPLAY_NAME_MAPPINGS.update(_dm)
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
-
