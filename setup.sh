@@ -13,6 +13,7 @@ WORKSPACE="/workspace"
 COMFYUI_DIR="${WORKSPACE}/ComfyUI"
 VENV_PATH="${WORKSPACE}/venv"
 MY_REPO_URL="https://huggingface.co/depersonity/wf_local/resolve/main"
+LIVEPORTRAIT_REPO_URL="https://huggingface.co/Kijai/LivePortrait_safetensors/resolve/main"
 
 # Твой обновленный репозиторий
 DEP_NODES_REPO="https://github.com/depersonityhom/dep_test_repo.git"
@@ -178,6 +179,21 @@ download_resource "models/loras" "$MY_REPO_URL/Wan2.2-Fun-A14B-InP-low-noise-HPS
 download_resource "models/detection" "$MY_REPO_URL/vitpose_h_wholebody_model.onnx" "ViTPose wholebody (onnx)"
 download_resource "models/detection" "$MY_REPO_URL/vitpose_h_wholebody_data.bin" "ViTPose data (bin)"
 download_resource "models/detection" "$MY_REPO_URL/yolov10m.onnx" "YOLOv10m (onnx)"
+
+# LivePortrait модели (models/liveportrait)
+download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/appearance_feature_extractor.safetensors" "LivePortrait: appearance_feature_extractor"
+download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/motion_extractor.safetensors" "LivePortrait: motion_extractor"
+download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/warping_module.safetensors" "LivePortrait: warping_module"
+download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/spade_generator.safetensors" "LivePortrait: spade_generator"
+download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/stitching_retargeting_module.safetensors" "LivePortrait: stitching_retargeting_module"
+download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/landmark.onnx" "LivePortrait: landmark.onnx (CropperInsightFace)"
+
+# Animal mode (опционально)
+download_resource "models/liveportrait/animal" "$LIVEPORTRAIT_REPO_URL/animal/appearance_feature_extractor.safetensors" "LivePortrait animal: appearance_feature_extractor"
+download_resource "models/liveportrait/animal" "$LIVEPORTRAIT_REPO_URL/animal/motion_extractor.safetensors" "LivePortrait animal: motion_extractor"
+download_resource "models/liveportrait/animal" "$LIVEPORTRAIT_REPO_URL/animal/warping_module.safetensors" "LivePortrait animal: warping_module"
+download_resource "models/liveportrait/animal" "$LIVEPORTRAIT_REPO_URL/animal/spade_generator.safetensors" "LivePortrait animal: spade_generator"
+download_resource "models/liveportrait/animal" "$LIVEPORTRAIT_REPO_URL/animal/stitching_retargeting_module.safetensors" "LivePortrait animal: stitching_retargeting_module"
 
 # Denoise модель (SwinIR) для TSDenoise (models/upscale_models)
 download_resource "models/upscale_models" "$MY_REPO_URL/005_colorDN_DFWB_s128w8_SwinIR-M_noise15.pth" "SwinIR denoise (noise15)"
