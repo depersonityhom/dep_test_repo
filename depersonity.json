@@ -4645,6 +4645,11 @@
             "mode": 0,
             "inputs": [
                 {
+                    "name": "facerestore_model",
+                    "type": "FACERESTORE_MODEL",
+                    "link": 856
+                },
+                {
                     "name": "image",
                     "type": "IMAGE",
                     "link": 854
@@ -4662,7 +4667,38 @@
             "title": "CodeFormer Face Restore",
             "properties": {},
             "widgets_values": [
+                "retinaface_resnet50",
                 0.6
+            ]
+        },
+        {
+            "id": 695,
+            "type": "Depersonity_FaceRestoreModelLoader",
+            "pos": [
+                -6400,
+                6250
+            ],
+            "size": [
+                300,
+                80
+            ],
+            "flags": {},
+            "order": 105,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "FACERESTORE_MODEL",
+                    "type": "FACERESTORE_MODEL",
+                    "links": [
+                        856
+                    ]
+                }
+            ],
+            "title": "Load FaceRestore Model",
+            "properties": {},
+            "widgets_values": [
+                "codeformer.pth"
             ]
         }
     ],
@@ -5288,7 +5324,7 @@
             693,
             0,
             694,
-            0,
+            1,
             "IMAGE"
         ],
         [
@@ -5306,6 +5342,14 @@
             544,
             0,
             "IMAGE"
+        ],
+        [
+            856,
+            695,
+            0,
+            694,
+            0,
+            "FACERESTORE_MODEL"
         ]
     ],
     "groups": [
