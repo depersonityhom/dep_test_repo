@@ -17,51 +17,71 @@ def fix_workflow(path: Path) -> tuple[int, int]:
         if not isinstance(n.get("outputs"), list):
             n["outputs"] = []
 
+    # Rebuild links from node->outputs (origin) + node->inputs (targets).
+    # This fixes two classes of issues:
+    # 1) links pointing to non-existent slots (we drop them)
+    # 2) missing link records in data["links"] even though inputs/outputs reference them (we reconstruct them)
+    origin_by_link = {}
+    for nid, n in node_by_id.items():
+        for o_slot, out in enumerate(n.get("outputs", [])):
+            if not isinstance(out, dict):
+                continue
+            for link_id in _as_list(out.get("links")):
+                if isinstance(link_id, int) and link_id not in origin_by_link:
+                    origin_by_link[link_id] = (nid, o_slot, out.get("type"))
+
     kept_links = []
     removed = 0
+    kept_ids = set()
 
-    for l in _as_list(data.get("links")):
-        if not (isinstance(l, list) and len(l) >= 6):
-            removed += 1
-            continue
-        link_id, origin_id, origin_slot, target_id, target_slot, link_type = l[:6]
-        if not all(isinstance(x, int) for x in [link_id, origin_id, origin_slot, target_id, target_slot]):
-            removed += 1
-            continue
+    for t_id, t in node_by_id.items():
+        for t_slot, inp in enumerate(t.get("inputs", [])):
+            if not isinstance(inp, dict):
+                continue
+            link_id = inp.get("link")
+            if not isinstance(link_id, int):
+                continue
+            origin_info = origin_by_link.get(link_id)
+            if origin_info is None:
+                inp["link"] = None
+                removed += 1
+                continue
+            o_id, o_slot, out_type = origin_info
+            origin = node_by_id.get(o_id)
+            if origin is None:
+                inp["link"] = None
+                removed += 1
+                continue
 
-        origin = node_by_id.get(origin_id)
-        target = node_by_id.get(target_id)
-        if origin is None or target is None:
-            removed += 1
-            continue
+            origin_outputs = origin.get("outputs", [])
+            if not (0 <= o_slot < len(origin_outputs)):
+                inp["link"] = None
+                removed += 1
+                continue
+            target_inputs = t.get("inputs", [])
+            if not (0 <= t_slot < len(target_inputs)):
+                inp["link"] = None
+                removed += 1
+                continue
 
-        origin_outputs = origin.get("outputs", [])
-        target_inputs = target.get("inputs", [])
-        if not (0 <= origin_slot < len(origin_outputs)):
-            removed += 1
-            continue
-        if not (0 <= target_slot < len(target_inputs)):
-            removed += 1
-            continue
+            out = origin_outputs[o_slot]
+            if not isinstance(out, dict):
+                inp["link"] = None
+                removed += 1
+                continue
 
-        out = origin_outputs[origin_slot]
-        inp = target_inputs[target_slot]
-        if not isinstance(out, dict) or not isinstance(inp, dict):
-            removed += 1
-            continue
+            # Ensure origin output contains this link id
+            out_links = out.get("links")
+            if not isinstance(out_links, list):
+                out_links = []
+                out["links"] = out_links
+            if link_id not in out_links:
+                out_links.append(link_id)
 
-        out_links = out.get("links")
-        if not isinstance(out_links, list):
-            out_links = []
-            out["links"] = out_links
-        if link_id not in out_links:
-            out_links.append(link_id)
-
-        inp["link"] = link_id
-
-        kept_links.append([link_id, origin_id, origin_slot, target_id, target_slot, link_type])
-
-    kept_ids = {l[0] for l in kept_links}
+            # Keep link type consistent with the target input type if possible
+            link_type = inp.get("type") or out_type or "UNKNOWN"
+            kept_links.append([link_id, o_id, o_slot, t_id, t_slot, link_type])
+            kept_ids.add(link_id)
 
     for n in nodes:
         for inp in n.get("inputs", []):
