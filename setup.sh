@@ -14,6 +14,15 @@ COMFYUI_DIR="${WORKSPACE}/ComfyUI"
 VENV_PATH="${WORKSPACE}/venv"
 MY_REPO_URL="https://huggingface.co/depersonity/wf_local/resolve/main"
 LIVEPORTRAIT_REPO_URL="https://huggingface.co/Kijai/LivePortrait_safetensors/resolve/main"
+SAM2_REPO_URL="https://huggingface.co/Kijai/sam2-safetensors/resolve/main"
+CODEFORMER_URL="https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth"
+GFPGAN_URL="https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth"
+FACEDT_RESNET50_URL="https://github.com/xinntao/facexlib/releases/download/v0.1.0/detection_Resnet50_Final.pth"
+FACEDT_MOBILENET_URL="https://github.com/xinntao/facexlib/releases/download/v0.1.0/detection_mobilenet0.25_Final.pth"
+FACEDT_YOLOV5L_URL="https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/yolov5l-face.pth"
+FACEDT_YOLOV5N_URL="https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/yolov5n-face.pth"
+FACEPARSING_URL="https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/parsing_parsenet.pth"
+INSIGHTFACE_BUFFALO_URL="https://github.com/deepinsight/insightface/releases/download/v0.7/buffalo_l.zip"
 
 # Твой обновленный репозиторий
 DEP_NODES_REPO="https://github.com/depersonityhom/dep_test_repo.git"
@@ -58,6 +67,31 @@ function download_resource() {
         fi
         echo -e " ${GREEN}[OK]${NC}"
     fi
+}
+
+function download_and_extract_zip() {
+    local zip_dir="$1"
+    local url="$2"
+    local desc="$3"
+    local fname=$(basename "$url")
+    mkdir -p "$zip_dir"
+    if [[ ! -f "$zip_dir/$fname" ]]; then
+        echo -ne "${YELLOW}[📥]${NC} $desc..."
+        if [[ -n "$HF_TOKEN" ]]; then
+            wget --header="Authorization: Bearer $HF_TOKEN" -q --show-progress=off -nc --content-disposition -P "$zip_dir" "$url"
+        else
+            wget -q --show-progress=off -nc --content-disposition -P "$zip_dir" "$url"
+        fi
+        echo -e " ${GREEN}[OK]${NC}"
+    fi
+    python3 - <<PY
+import zipfile
+from pathlib import Path
+zip_path = Path(r"$zip_dir") / "$fname"
+with zipfile.ZipFile(zip_path, "r") as z:
+    z.extractall(Path(r"$zip_dir"))
+print("extracted", zip_path.name, "to", r"$zip_dir")
+PY
 }
 
 # --- ПРОЦЕСС ---
@@ -180,6 +214,9 @@ download_resource "models/detection" "$MY_REPO_URL/vitpose_h_wholebody_model.onn
 download_resource "models/detection" "$MY_REPO_URL/vitpose_h_wholebody_data.bin" "ViTPose data (bin)"
 download_resource "models/detection" "$MY_REPO_URL/yolov10m.onnx" "YOLOv10m (onnx)"
 
+# SAM2 (models/sam2)
+download_resource "models/sam2" "$SAM2_REPO_URL/sam2.1_hiera_base_plus-fp16.safetensors" "SAM2.1 base+ (fp16)"
+
 # LivePortrait модели (models/liveportrait)
 download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/appearance_feature_extractor.safetensors" "LivePortrait: appearance_feature_extractor"
 download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/motion_extractor.safetensors" "LivePortrait: motion_extractor"
@@ -187,6 +224,7 @@ download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/warping_module.s
 download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/spade_generator.safetensors" "LivePortrait: spade_generator"
 download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/stitching_retargeting_module.safetensors" "LivePortrait: stitching_retargeting_module"
 download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/landmark.onnx" "LivePortrait: landmark.onnx (CropperInsightFace)"
+download_resource "models/liveportrait" "$LIVEPORTRAIT_REPO_URL/landmark_model.pth" "LivePortrait: landmark_model.pth"
 
 # Animal mode (опционально)
 download_resource "models/liveportrait/animal" "$LIVEPORTRAIT_REPO_URL/animal/appearance_feature_extractor.safetensors" "LivePortrait animal: appearance_feature_extractor"
@@ -201,9 +239,21 @@ download_resource "models/upscale_models" "$MY_REPO_URL/005_colorDN_DFWB_s128w8_
 # Прочее (если понадобится)
 download_resource "models/promptmodels" "$MY_REPO_URL/low.pt" "promptmodels low.pt"
 
-# CodeFormer (facerestore_models)
-download_resource "models/facerestore_models" "https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth" "CodeFormer model (codeformer.pth)"
-echo -e "${YELLOW}Важно:${NC} если список в ноде FaceRestoreModelLoader пустой, проверь что файл лежит в ${COMFYUI_DIR}/models/facerestore_models/codeformer.pth и перезапусти ComfyUI"
+# Face restore models (models/facerestore_models)
+download_resource "models/facerestore_models" "$CODEFORMER_URL" "CodeFormer model (codeformer.pth)"
+download_resource "models/facerestore_models" "$GFPGAN_URL" "GFPGANv1.4 (optional)"
+
+# Face detection/parsing for face restore (models/facedetection)
+download_resource "models/facedetection" "$FACEDT_RESNET50_URL" "Face detection: retinaface_resnet50"
+download_resource "models/facedetection" "$FACEDT_MOBILENET_URL" "Face detection: retinaface_mobile0.25"
+download_resource "models/facedetection" "$FACEDT_YOLOV5L_URL" "Face detection: yolov5l-face"
+download_resource "models/facedetection" "$FACEDT_YOLOV5N_URL" "Face detection: yolov5n-face"
+download_resource "models/facedetection" "$FACEPARSING_URL" "Face parsing: parsenet"
+
+# InsightFace models (models/insightface/buffalo_l) - required if using InsightFace cropper/detector
+if [[ ! -d "models/insightface/buffalo_l" ]]; then
+    download_and_extract_zip "models/insightface" "$INSIGHTFACE_BUFFALO_URL" "InsightFace buffalo_l (zip)"
+fi
 
 log_step "06" "СТАРТ"
 echo -e "${GREEN}✨ Все файлы из репозитория успешно перенесены в custom_nodes.${NC}"
